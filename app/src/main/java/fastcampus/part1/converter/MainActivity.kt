@@ -61,14 +61,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        outState.putBoolean("isUnitMeter", isUnitMeter)
         super.onSaveInstanceState(outState)
+        outState.putBoolean("isUnitMeter", isUnitMeter)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        // Activity의 View 상태 복원
+        // 첫번째 줄 : 단위 변환에 따른 값 변경이 바로 반영 X
+        // super.onRestoreInstanceState(savedInstanceState)
+
         isUnitMeter = savedInstanceState.getBoolean("isUnitMeter")
         binding.inputUnitTextView.text = if (isUnitMeter) "m" else "cm"
         binding.outputUnitTextView.text = if (isUnitMeter) "cm" else "m"
+
+        // 마지막 줄 : 단위 변환에 따른 값 변경이 바로 반영 O
         super.onRestoreInstanceState(savedInstanceState)
     }
 }
