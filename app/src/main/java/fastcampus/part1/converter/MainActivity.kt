@@ -16,6 +16,20 @@ import fastcampus.part1.converter.databinding.ActivityMainBinding
  *    m → cm : *100
  * */
 
+/**
+ * ConstraintLayout
+ * flat 구조로 화면 렌더링 속도 증가
+ *
+ * ViewBinding
+ * findViewById 보다 안전한 UI 선택
+ *
+ * onSaveInstanceState
+ * 원하는 데이터 저장
+ *
+ * onRestoreInstanceState
+ * 저장한 데이터 부르기
+ * */
+
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var inputNumber: Int = 0
